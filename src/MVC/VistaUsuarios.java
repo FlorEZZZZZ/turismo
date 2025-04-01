@@ -109,7 +109,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 30, 90, 80));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3440901_box_carton_delivery_ecommerce_package_icon.png"))); // NOI18N
         jButton2.setText("Paquetes");
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -117,7 +120,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 30, 110, 80));
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3896344 (1).png"))); // NOI18N
         jButton3.setText("Agencias");
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -125,7 +131,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 90, 80));
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/5574644 (1).png"))); // NOI18N
         jButton4.setText("Compañias");
+        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -133,7 +142,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 90, 80));
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/advertising_17844586.png"))); // NOI18N
         jButton5.setText("Medios");
+        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -141,7 +153,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 90, 80));
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/7981453 (1).png"))); // NOI18N
         jButton6.setText("Operadores");
+        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -149,7 +164,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 100, 80));
 
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8252103 (1).png"))); // NOI18N
         jButton7.setText("Promotores");
+        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -157,7 +175,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 100, 80));
 
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/2323154 (1).png"))); // NOI18N
         jButton8.setText("Tipos Medios");
+        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -165,7 +186,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 30, 110, 80));
 
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/743902 (1).png"))); // NOI18N
         jButton9.setText("Tipos Transportes");
+        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -324,6 +348,19 @@ public class VistaUsuarios extends javax.swing.JFrame {
         }
        }
         
+      switch (seleccion) {
+    case 1 -> mostrarClientes("tblclientes");
+    case 2 -> mostrarVehiculos("tblvehiculo");
+    case 3 -> mostrarPaquetes("tblpaquetes");
+    case 4 -> mostrarAgencias("tblagencias");
+    case 5 -> mostrarCompanias("tblcompanias");
+    case 6 -> mostrarMedios("tblmedios");
+    case 7 -> mostrarOperadores("tbloperadores");
+    case 8 -> mostrarPromotores("tblpromotores");
+    case 9 -> mostrarTiposMedios("tbltiposmedios");
+    case 10 -> mostrarTiposTransporte("tbltipotransporte");
+}   
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void mostrarPromotores(String tabla){
