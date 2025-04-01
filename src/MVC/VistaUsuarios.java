@@ -6,6 +6,7 @@ package MVC;
 
 import Controlador.Conexiones;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,9 +19,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VistaUsuarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaUsuarios
-     */
+   public int seleccion;
+   public String mensaje;
+   public String primaryKey;
+   public String nombreTabla;
+    
     public VistaUsuarios() {
         initComponents();
     }
@@ -39,6 +42,15 @@ public class VistaUsuarios extends javax.swing.JFrame {
         tblvisor = new javax.swing.JTable();
         btnClientes = new javax.swing.JButton();
         btnvehiculos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +98,81 @@ public class VistaUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(btnvehiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 90, 80));
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8664938_trash_can_delete_remove_icon.png"))); // NOI18N
+        jButton1.setText("Borrar");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 30, 90, 80));
+
+        jButton2.setText("Paquetes");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 30, 110, 80));
+
+        jButton3.setText("Agencias");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 90, 80));
+
+        jButton4.setText("Compañias");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 90, 80));
+
+        jButton5.setText("Medios");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 90, 80));
+
+        jButton6.setText("Operadores");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 100, 80));
+
+        jButton7.setText("Promotores");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 100, 80));
+
+        jButton8.setText("Tipos Medios");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 30, 110, 80));
+
+        jButton9.setText("Tipos Transportes");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, 130, 80));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,18 +190,203 @@ public class VistaUsuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-
+        seleccion = 1;
+        primaryKey = "id";
+        nombreTabla = "tblclientes";
         mostrarClientes("tblclientes");
-
+        
 
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void btnvehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvehiculosActionPerformed
-
+        seleccion = 2;
+        primaryKey = "matricula";
+        nombreTabla = "tblvehiculo";
         mostrarVehiculos("tblvehiculo");
-        
     }//GEN-LAST:event_btnvehiculosActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        seleccion = 3;
+        primaryKey = "codigo";
+        nombreTabla = "tblpaquetes";
+        mostrarPaquetes("tblpaquetes");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        seleccion = 4;
+        primaryKey = "idagencia";
+        nombreTabla = "tblagencias";
+        mostrarAgencias("tblagencias");
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        seleccion = 5;
+        primaryKey = "idcompania";
+        nombreTabla = "tblcompanias";
+        mostrarCompanias("tblcompanias");
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        seleccion = 6;
+        primaryKey = "idmedios";
+        nombreTabla = "tblmedios";
+        mostrarMedios("tblmedios");
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        seleccion = 7;
+        primaryKey = "id";
+        nombreTabla = "tbloperadores";
+        mostrarOperadores("tbloperadores");
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        seleccion = 8;
+        primaryKey = "id";
+        nombreTabla = "tblpromotores";
+        mostrarPromotores("tblpromotores");
+
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        seleccion = 9;
+        primaryKey = "idtipomedio";
+        nombreTabla = "tbltiposmedios";
+        mostrarTiposMedios("tbltiposmedios");
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        seleccion = 10;
+        primaryKey = "idtipo";
+        nombreTabla = "tbltipotransporte";
+        mostrarTiposTransporte("tbltipotransporte");
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if(seleccion != 0){
+    String idBorrar = JOptionPane.showInputDialog("Escriba el ID a borrar");
+        
+        
+        switch(seleccion){
+    
+        case 1 -> mensaje = "Desea borrar de la tabla clientes el ID: " + idBorrar;
+        case 2 -> mensaje = "Desea borrar de la tabla vehiculos el ID: " + idBorrar;
+        case 3 -> mensaje = "Desea borrar de la tabla paquetes el ID: " + idBorrar;
+        case 4 -> mensaje = "Desea borrar de la tabla agencias el ID: " + idBorrar;
+        case 5 -> mensaje = "Desea borrar de la tabla compañias el ID: " + idBorrar;
+        case 6 -> mensaje = "Desea borrar de la tabla medios el ID: " + idBorrar;
+        case 7 -> mensaje = "Desea borrar de la tabla operadores el ID: " + idBorrar;
+        case 8 -> mensaje = "Desea borrar de la tabla promotores el ID: " + idBorrar;
+        case 9 -> mensaje = "Desea borrar de la tabla tipo de medios el ID: " + idBorrar;
+        case 10 -> mensaje = "Desea borrar de la tabla tipo de transportes el ID: " + idBorrar;
+    }    
+
+
+        
+        int respuesta = JOptionPane.showConfirmDialog(null, mensaje);
+        
+        if(respuesta == JOptionPane.OK_OPTION){
+
+                Conexiones conector = new Conexiones();
+
+            
+            Connection dbConnection = null;
+        PreparedStatement pst = null;
+
+        String script = "DELETE FROM " + nombreTabla + " WHERE " + primaryKey + " = ?"; 
+
+        try {
+            dbConnection = conector.conectarBD();
+            pst = dbConnection.prepareStatement(script);
+
+           
+        if(seleccion != 2){ 
+            pst.setInt(1, Integer.parseInt(idBorrar));
+        } else {
+            System.out.println("a");
+            pst.setString(1, idBorrar);
+            System.out.println("ae");
+        }
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Exito al borrar.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            
+        }
+       }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void mostrarPromotores(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID");
+    model.addColumn("Tipo Documento");
+    model.addColumn("Documento");
+    model.addColumn("Nombres");
+    model.addColumn("Apellidos");
+    model.addColumn("Dirección");
+    model.addColumn("Correo");
+    model.addColumn("Correo Personal");
+    model.addColumn("Correo Corporativo");
+    model.addColumn("Fecha Nacimiento");
+    model.addColumn("Teléfono");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[11];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("id"));
+            datos[1] = String.valueOf(rs.getInt("tipodocumento"));
+            datos[2] = String.valueOf(rs.getInt("documento"));
+            datos[3] = rs.getString("nombres");
+            datos[4] = rs.getString("apellidos");
+            datos[5] = rs.getString("direccion");
+            datos[6] = rs.getString("correo");
+            datos[7] = rs.getString("correopersonal");
+            datos[8] = rs.getString("correocorp");
+            datos[9] = String.valueOf(rs.getDate("fechanacimiento"));
+            datos[10] = rs.getString("telefono");
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+    
+    
     public void mostrarVehiculos(String tabla){
     
 String sql = "SELECT * FROM " + tabla;
@@ -171,7 +443,364 @@ try {
         
     }
     
+    public void mostrarAgencias(String tabla){
     
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID Agencia");
+    model.addColumn("Nombre");
+    model.addColumn("Dirección");
+    model.addColumn("Correo");
+    model.addColumn("Teléfono");
+    model.addColumn("Web");
+    model.addColumn("ID Compañía");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[7];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("idagencia")); // Convertir int a String
+            datos[1] = rs.getString("nombre");
+            datos[2] = rs.getString("direccion");
+            datos[3] = rs.getString("correo");
+            datos[4] = rs.getString("telefono");
+            datos[5] = rs.getString("web");
+            datos[6] = String.valueOf(rs.getInt("idcompania")); // Convertir int a String
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+    
+    public void mostrarCompanias(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("Razón Social");
+    model.addColumn("ID Compañía");
+    model.addColumn("Dirección");
+    model.addColumn("Correo");
+    model.addColumn("Teléfono");
+    model.addColumn("Web");
+    model.addColumn("Fecha de Creación");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[7];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = rs.getString("razonsocial");
+            datos[1] = String.valueOf(rs.getInt("idcompania")); // Convertir int a String
+            datos[2] = rs.getString("direccion");
+            datos[3] = rs.getString("correo");
+            datos[4] = rs.getString("telefono");
+            datos[5] = rs.getString("web");
+            datos[6] = rs.getString("fechacreacion");
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+    
+    public void mostrarMedios(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID Medios");
+    model.addColumn("Nombre");
+    model.addColumn("Observación");
+    model.addColumn("ID Tipo Medio");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[4];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("idmedios")); // Convertir int a String
+            datos[1] = rs.getString("nombre");
+            datos[2] = rs.getString("observacion");
+            datos[3] = String.valueOf(rs.getInt("idtipomedio")); // Convertir int a String
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+
+    public void mostrarOperadores(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID");
+    model.addColumn("Tipo Documento");
+    model.addColumn("Documento");
+    model.addColumn("Nombres");
+    model.addColumn("Apellidos");
+    model.addColumn("Dirección");
+    model.addColumn("Correo");
+    model.addColumn("Teléfono");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[8];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("id")); // Convertir int a String
+            datos[1] = String.valueOf(rs.getInt("tipodocumento"));
+            datos[2] = String.valueOf(rs.getInt("documento"));
+            datos[3] = rs.getString("nombres");
+            datos[4] = rs.getString("apellidos");
+            datos[5] = rs.getString("direccion");
+            datos[6] = rs.getString("correo");
+            datos[7] = rs.getString("telefono");
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+    
+    public void mostrarTiposMedios(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID Tipo Medio");
+    model.addColumn("Nombre");
+    model.addColumn("Observación");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[3];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("idtipomedio"));
+            datos[1] = rs.getString("nombre");
+            datos[2] = rs.getString("observacion");
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+    
+    public void mostrarTiposTransporte(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("ID Tipo Transporte");
+    model.addColumn("Nombre");
+    model.addColumn("Observación");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[3];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("idtipo"));
+            datos[1] = rs.getString("nombre");
+            datos[2] = rs.getString("observacion");
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
+    
+   
+    public void mostrarPaquetes(String tabla){
+    
+    String sql = "SELECT * FROM " + tabla;
+    Statement st;
+    Conexiones con = new Conexiones();
+    Connection conexion = con.conectarBD();
+
+    if (conexion == null) {
+        JOptionPane.showMessageDialog(null, "Error: No se pudo conectar a la base de datos.");
+        return;
+    }
+
+    // Definir modelo de la tabla con los nuevos campos
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("Código");
+    model.addColumn("ID Destino");
+    model.addColumn("ID Origen");
+    model.addColumn("Fecha Venta");
+    model.addColumn("Hora Venta");
+    model.addColumn("Hora Salida");
+    model.addColumn("Fecha Ejecución");
+    model.addColumn("Observación");
+    model.addColumn("ID Cliente");
+    model.addColumn("ID Agencia");
+    model.addColumn("ID Medio");
+    model.addColumn("ID Operadores");
+    model.addColumn("Matrícula");
+    model.addColumn("Precios");
+    tblvisor.setModel(model);
+
+    String[] datos = new String[14];
+
+    try {
+        st = conexion.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+
+        while (rs.next()) {
+            datos[0] = String.valueOf(rs.getInt("codigo"));
+            datos[1] = String.valueOf(rs.getInt("iddestino"));
+            datos[2] = String.valueOf(rs.getInt("idorigen"));
+            datos[3] = rs.getString("fechaventa");
+            datos[4] = rs.getString("horaventa");
+            datos[5] = rs.getString("horasalida");
+            datos[6] = rs.getString("fechaejecucion");
+            datos[7] = rs.getString("observacion");
+            datos[8] = String.valueOf(rs.getInt("idcliente"));
+            datos[9] = String.valueOf(rs.getInt("idagencia"));
+            datos[10] = String.valueOf(rs.getInt("idmedio"));
+            datos[11] = String.valueOf(rs.getInt("idoperadores"));
+            datos[12] = rs.getString("matricula");
+            datos[13] = rs.getString("precios");
+            
+            model.addRow(datos);
+        }
+
+        rs.close();
+        st.close();
+        conexion.close(); // Cierra la conexión después de usarla.
+
+        tblvisor.setModel(model); // Mueve la asignación aquí después de llenar los datos.
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.toString());
+    }
+}
     
     public void mostrarClientes(String tabla) {
 
@@ -275,6 +904,15 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnvehiculos;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblvisor;
