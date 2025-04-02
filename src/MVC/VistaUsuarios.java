@@ -12,7 +12,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import MVC.VistaAgencias;
+import MVC.VistaClientes;
+import MVC.VistaCompanias;
+import MVC.VistaMedios;
+import MVC.VistaOperadores;
+import MVC.VistaPaquetes;
+import MVC.VistaPromotores;
+import MVC.VistaTiposMedios;
+import MVC.VistaTiposTransportes;
+import MVC.VistaUsuarios;
+import MVC.VistaVehiculo;
+import javax.swing.JFrame;
 /**
  *
  * @author APRENDIZ
@@ -42,15 +53,16 @@ public class VistaUsuarios extends javax.swing.JFrame {
         tblvisor = new javax.swing.JTable();
         btnClientes = new javax.swing.JButton();
         btnvehiculos = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnagregar = new javax.swing.JButton();
+        btnpaquetes = new javax.swing.JButton();
+        btnagencias = new javax.swing.JButton();
+        btncompanias = new javax.swing.JButton();
+        btnmedios = new javax.swing.JButton();
+        btnoperadores = new javax.swing.JButton();
+        btnpromotores = new javax.swing.JButton();
+        btntipomedios = new javax.swing.JButton();
+        btntipotransporte = new javax.swing.JButton();
+        btnquitar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,7 +96,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
                 btnClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 90, 80));
+        jPanel1.add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 80));
 
         btnvehiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/2555021.png"))); // NOI18N
         btnvehiculos.setText("Vehiculos");
@@ -96,106 +108,117 @@ public class VistaUsuarios extends javax.swing.JFrame {
                 btnvehiculosActionPerformed(evt);
             }
         });
-        jPanel1.add(btnvehiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 90, 80));
+        jPanel1.add(btnvehiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 90, 80));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8664938_trash_can_delete_remove_icon.png"))); // NOI18N
-        jButton1.setText("Borrar");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8201360_add_plus_new_ui_icon.png"))); // NOI18N
+        btnagregar.setText("Agregar");
+        btnagregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnagregar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnagregarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 30, 90, 80));
+        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 30, 90, 80));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3440901_box_carton_delivery_ecommerce_package_icon.png"))); // NOI18N
-        jButton2.setText("Paquetes");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnpaquetes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3440901_box_carton_delivery_ecommerce_package_icon.png"))); // NOI18N
+        btnpaquetes.setText("Paquetes");
+        btnpaquetes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnpaquetes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnpaquetes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnpaquetesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 30, 110, 80));
+        jPanel1.add(btnpaquetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 30, 110, 80));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3896344 (1).png"))); // NOI18N
-        jButton3.setText("Agencias");
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnagencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3896344 (1).png"))); // NOI18N
+        btnagencias.setText("Agencias");
+        btnagencias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnagencias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnagencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnagenciasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 90, 80));
+        jPanel1.add(btnagencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 90, 80));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/5574644 (1).png"))); // NOI18N
-        jButton4.setText("Compañias");
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btncompanias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/5574644 (1).png"))); // NOI18N
+        btncompanias.setText("Compañias");
+        btncompanias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btncompanias.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btncompanias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btncompaniasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 90, 80));
+        jPanel1.add(btncompanias, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 90, 80));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/advertising_17844586.png"))); // NOI18N
-        jButton5.setText("Medios");
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnmedios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/advertising_17844586.png"))); // NOI18N
+        btnmedios.setText("Medios");
+        btnmedios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnmedios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnmedios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnmediosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 90, 80));
+        jPanel1.add(btnmedios, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 90, 80));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/7981453 (1).png"))); // NOI18N
-        jButton6.setText("Operadores");
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnoperadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/7981453 (1).png"))); // NOI18N
+        btnoperadores.setText("Operadores");
+        btnoperadores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnoperadores.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnoperadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnoperadoresActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 100, 80));
+        jPanel1.add(btnoperadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 100, 80));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8252103 (1).png"))); // NOI18N
-        jButton7.setText("Promotores");
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnpromotores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8252103 (1).png"))); // NOI18N
+        btnpromotores.setText("Promotores");
+        btnpromotores.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnpromotores.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnpromotores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnpromotoresActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 100, 80));
+        jPanel1.add(btnpromotores, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 100, 80));
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/2323154 (1).png"))); // NOI18N
-        jButton8.setText("Tipos Medios");
-        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btntipomedios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/2323154 (1).png"))); // NOI18N
+        btntipomedios.setText("Tipos Medios");
+        btntipomedios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btntipomedios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btntipomedios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btntipomediosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 30, 110, 80));
+        jPanel1.add(btntipomedios, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, 110, 80));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/743902 (1).png"))); // NOI18N
-        jButton9.setText("Tipos Transportes");
-        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btntipotransporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/743902 (1).png"))); // NOI18N
+        btntipotransporte.setText("Tipos Transportes");
+        btntipotransporte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btntipotransporte.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btntipotransporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btntipotransporteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, 130, 80));
+        jPanel1.add(btntipotransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 130, 80));
+
+        btnquitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8664938_trash_can_delete_remove_icon.png"))); // NOI18N
+        btnquitar.setText("Borrar");
+        btnquitar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnquitar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnquitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnquitarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnquitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 30, 90, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,74 +252,135 @@ public class VistaUsuarios extends javax.swing.JFrame {
         mostrarVehiculos("tblvehiculo");
     }//GEN-LAST:event_btnvehiculosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnpaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpaquetesActionPerformed
         seleccion = 3;
         primaryKey = "codigo";
         nombreTabla = "tblpaquetes";
         mostrarPaquetes("tblpaquetes");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnpaquetesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnagenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagenciasActionPerformed
         seleccion = 4;
         primaryKey = "idagencia";
         nombreTabla = "tblagencias";
         mostrarAgencias("tblagencias");
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnagenciasActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btncompaniasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncompaniasActionPerformed
         seleccion = 5;
         primaryKey = "idcompania";
         nombreTabla = "tblcompanias";
         mostrarCompanias("tblcompanias");
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btncompaniasActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnmediosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmediosActionPerformed
         seleccion = 6;
         primaryKey = "idmedios";
         nombreTabla = "tblmedios";
         mostrarMedios("tblmedios");
 
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnmediosActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnoperadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnoperadoresActionPerformed
         seleccion = 7;
         primaryKey = "id";
         nombreTabla = "tbloperadores";
         mostrarOperadores("tbloperadores");
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnoperadoresActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnpromotoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpromotoresActionPerformed
         seleccion = 8;
         primaryKey = "id";
         nombreTabla = "tblpromotores";
         mostrarPromotores("tblpromotores");
 
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnpromotoresActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btntipomediosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntipomediosActionPerformed
         seleccion = 9;
         primaryKey = "idtipomedio";
         nombreTabla = "tbltiposmedios";
         mostrarTiposMedios("tbltiposmedios");
 
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btntipomediosActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void btntipotransporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntipotransporteActionPerformed
         seleccion = 10;
         primaryKey = "idtipo";
         nombreTabla = "tbltipotransporte";
         mostrarTiposTransporte("tbltipotransporte");
 
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_btntipotransporteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       if(seleccion != 0){
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+       
+        VistaAgencias vistaAgencias = new VistaAgencias();
+        VistaClientes vistaClientes = new VistaClientes();
+        VistaCompanias vistaCompanias = new VistaCompanias();
+        VistaMedios vistaMedios = new VistaMedios();
+        VistaOperadores vistaOperadores = new VistaOperadores();
+        VistaPaquetes vistaPaquetes = new VistaPaquetes();
+        VistaPromotores vistaPromotores = new VistaPromotores();
+        VistaTiposMedios vistaTiposMedios = new VistaTiposMedios();
+        VistaTiposTransportes vistaTiposTransportes = new VistaTiposTransportes();
+        VistaUsuarios vistaUsuarios = new VistaUsuarios();
+        VistaVehiculo vistaVehiculo = new VistaVehiculo();
+        
+            if(seleccion != 0){
+        switch (seleccion) {
+            case 1 -> {
+                vistaClientes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaClientes.setVisible(true);
+            }
+            case 2 -> {
+                vistaVehiculo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaVehiculo.setVisible(true);
+            }
+            case 3 -> {
+                vistaPaquetes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaPaquetes.setVisible(true);
+            }
+            case 4 -> {
+                vistaAgencias.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaAgencias.setVisible(true);
+            }
+            case 5 -> {
+                vistaCompanias.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaCompanias.setVisible(true);
+            }
+            case 6 -> {
+                vistaMedios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaMedios.setVisible(true);
+            }
+            case 7 -> {
+                vistaOperadores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaOperadores.setVisible(true);
+            }
+            case 8 -> {
+                vistaPromotores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaPromotores.setVisible(true);
+            }
+            case 9 -> {
+                vistaTiposMedios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaTiposMedios.setVisible(true);
+            }
+            case 10 -> {
+                vistaTiposTransportes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaTiposTransportes.setVisible(true);
+            }
+        }
+    }
+    }//GEN-LAST:event_btnagregarActionPerformed
+    
+       
+    private void btnquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitarActionPerformed
+if(seleccion != 0){
     String idBorrar = JOptionPane.showInputDialog("Escriba el ID a borrar");
         
-        
+  if(idBorrar != null){      
         switch(seleccion){
     
         case 1 -> mensaje = "Desea borrar de la tabla clientes el ID: " + idBorrar;
@@ -310,13 +394,13 @@ public class VistaUsuarios extends javax.swing.JFrame {
         case 9 -> mensaje = "Desea borrar de la tabla tipo de medios el ID: " + idBorrar;
         case 10 -> mensaje = "Desea borrar de la tabla tipo de transportes el ID: " + idBorrar;
     }    
-
+  
 
         
         int respuesta = JOptionPane.showConfirmDialog(null, mensaje);
-        
+         
         if(respuesta == JOptionPane.OK_OPTION){
-
+        
                 Conexiones conector = new Conexiones();
 
             
@@ -342,12 +426,12 @@ public class VistaUsuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Exito al borrar.");
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
             
         }
        }
-        
+} 
       switch (seleccion) {
     case 1 -> mostrarClientes("tblclientes");
     case 2 -> mostrarVehiculos("tblvehiculo");
@@ -359,9 +443,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
     case 8 -> mostrarPromotores("tblpromotores");
     case 9 -> mostrarTiposMedios("tbltiposmedios");
     case 10 -> mostrarTiposTransporte("tbltipotransporte");
-}   
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+}       }//GEN-LAST:event_btnquitarActionPerformed
 
     public void mostrarPromotores(String tabla){
     
@@ -940,16 +1022,17 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnagencias;
+    private javax.swing.JButton btnagregar;
+    private javax.swing.JButton btncompanias;
+    private javax.swing.JButton btnmedios;
+    private javax.swing.JButton btnoperadores;
+    private javax.swing.JButton btnpaquetes;
+    private javax.swing.JButton btnpromotores;
+    private javax.swing.JButton btnquitar;
+    private javax.swing.JButton btntipomedios;
+    private javax.swing.JButton btntipotransporte;
     public javax.swing.JButton btnvehiculos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblvisor;
