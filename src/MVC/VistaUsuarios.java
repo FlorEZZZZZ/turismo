@@ -373,6 +373,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
             }
         }
     }
+            
     }//GEN-LAST:event_btnagregarActionPerformed
     
        
@@ -417,9 +418,7 @@ if(seleccion != 0){
         if(seleccion != 2){ 
             pst.setInt(1, Integer.parseInt(idBorrar));
         } else {
-            System.out.println("a");
             pst.setString(1, idBorrar);
-            System.out.println("ae");
         }
             pst.executeUpdate();
 
