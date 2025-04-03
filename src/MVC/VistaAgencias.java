@@ -42,6 +42,7 @@ public class VistaAgencias extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txfid = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +103,8 @@ public class VistaAgencias extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Actualizar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -142,8 +145,10 @@ public class VistaAgencias extends javax.swing.JFrame {
                         .addComponent(txfnombreAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
+                .addGap(88, 88, 88)
                 .addComponent(btnEnviar)
+                .addGap(204, 204, 204)
+                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -175,9 +180,11 @@ public class VistaAgencias extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txfid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(btnEnviar)
-                .addGap(63, 63, 63))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEnviar)
+                    .addComponent(jButton2))
+                .addGap(101, 101, 101))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,6 +251,17 @@ public class VistaAgencias extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEnviarActionPerformed
 
+    public void actualizar(String nombre, String direccion, String correo, String telefono, String web, int idcompania){
+    
+    txfnombreAgencia.setText(nombre);
+    txfcorreo.setText(correo);
+    txfdireccion.setText(direccion);
+    txftelefono.setText(telefono);
+    txfweb.setText(web);
+    txfid.setText(String.valueOf(idcompania));
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -282,6 +300,7 @@ public class VistaAgencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -289,7 +308,7 @@ public class VistaAgencias extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txfcorreo;
     private javax.swing.JTextField txfdireccion;
     private javax.swing.JTextField txfid;

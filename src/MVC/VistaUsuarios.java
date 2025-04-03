@@ -23,6 +23,7 @@ import MVC.VistaTiposMedios;
 import MVC.VistaTiposTransportes;
 import MVC.VistaUsuarios;
 import MVC.VistaVehiculo;
+import Modelo.Agencias;
 import javax.swing.JFrame;
 /**
  *
@@ -34,6 +35,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
    public String mensaje;
    public String primaryKey;
    public String nombreTabla;
+   
     
     public VistaUsuarios() {
         initComponents();
@@ -63,6 +65,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
         btntipomedios = new javax.swing.JButton();
         btntipotransporte = new javax.swing.JButton();
         btnquitar = new javax.swing.JButton();
+        btnagregar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,7 +122,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
                 btnagregarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 30, 90, 80));
+        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 30, 80, 80));
 
         btnpaquetes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3440901_box_carton_delivery_ecommerce_package_icon.png"))); // NOI18N
         btnpaquetes.setText("Paquetes");
@@ -130,7 +133,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
                 btnpaquetesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnpaquetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 30, 110, 80));
+        jPanel1.add(btnpaquetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, 90, 80));
 
         btnagencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/3896344 (1).png"))); // NOI18N
         btnagencias.setText("Agencias");
@@ -218,7 +221,18 @@ public class VistaUsuarios extends javax.swing.JFrame {
                 btnquitarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnquitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 30, 90, 80));
+        jPanel1.add(btnquitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 30, 70, 80));
+
+        btnagregar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MVC/8201360_add_plus_new_ui_icon.png"))); // NOI18N
+        btnagregar1.setText("Actualizar");
+        btnagregar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnagregar1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnagregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnagregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 30, 90, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -443,6 +457,69 @@ public class VistaUsuarios extends javax.swing.JFrame {
     case 10 -> mostrarTiposTransporte("tbltipotransporte");
 }       }//GEN-LAST:event_btnquitarActionPerformed
 
+    private void btnagregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregar1ActionPerformed
+
+        VistaAgencias vistaAgencias = new VistaAgencias();
+        VistaClientes vistaClientes = new VistaClientes();
+        VistaCompanias vistaCompanias = new VistaCompanias();
+        VistaMedios vistaMedios = new VistaMedios();
+        VistaOperadores vistaOperadores = new VistaOperadores();
+        VistaPaquetes vistaPaquetes = new VistaPaquetes();
+        VistaPromotores vistaPromotores = new VistaPromotores();
+        VistaTiposMedios vistaTiposMedios = new VistaTiposMedios();
+        VistaTiposTransportes vistaTiposTransportes = new VistaTiposTransportes();
+        VistaUsuarios vistaUsuarios = new VistaUsuarios();
+        VistaVehiculo vistaVehiculo = new VistaVehiculo();
+        
+        if(seleccion != 0){
+        switch (seleccion) {
+            case 1 -> {
+                vistaClientes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaClientes.setVisible(true);
+            }
+            case 2 -> {
+                vistaVehiculo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaVehiculo.setVisible(true);
+            }
+            case 3 -> {
+                vistaPaquetes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaPaquetes.setVisible(true);
+            }
+            case 4 -> {
+                int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                        vistaAgencias.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            Agencias ag = new Agencias();
+        
+            ag.mostrar(id);
+            }
+            case 5 -> {
+                vistaCompanias.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaCompanias.setVisible(true);
+            }
+            case 6 -> {
+                vistaMedios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaMedios.setVisible(true);
+            }
+            case 7 -> {
+                vistaOperadores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaOperadores.setVisible(true);
+            }
+            case 8 -> {
+                vistaPromotores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaPromotores.setVisible(true);
+            }
+            case 9 -> {
+                vistaTiposMedios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaTiposMedios.setVisible(true);
+            }
+            case 10 -> {
+                vistaTiposTransportes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vistaTiposTransportes.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_btnagregar1ActionPerformed
+    }
     public void mostrarPromotores(String tabla){
     
     String sql = "SELECT * FROM " + tabla;
@@ -1022,6 +1099,7 @@ try {
     public javax.swing.JButton btnClientes;
     private javax.swing.JButton btnagencias;
     private javax.swing.JButton btnagregar;
+    private javax.swing.JButton btnagregar1;
     private javax.swing.JButton btncompanias;
     private javax.swing.JButton btnmedios;
     private javax.swing.JButton btnoperadores;

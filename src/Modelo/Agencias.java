@@ -5,10 +5,16 @@
 package Modelo;
 
 import Controlador.Conexiones;
+import MVC.VistaAgencias;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import com.mysql.cj.protocol.Resultset;
+import javax.swing.JFrame;
 
 
 public class Agencias {
@@ -21,6 +27,7 @@ public class Agencias {
     public String web;
     public int idcompania;
 
+    
     public int getIdagencia() {
         return idagencia;
     }
@@ -104,7 +111,46 @@ public class Agencias {
             e.printStackTrace();
         }
     }
-    
+     
+     public void mostrar(int idagencia){
+    String[] datos = new String[6];
+    String sql = "SELECT * FROM tblagencias WHERE idagencia = ?";
+    Connection dbConnection = null;
+    PreparedStatement pst = null;
+
+    try {
+        dbConnection = conector.conectarBD();
+        pst = dbConnection.prepareStatement(sql);
+        pst.setInt(1, idagencia);  // Usamos el parámetro `idagencia` para la consulta
+        
+        ResultSet rs = pst.executeQuery();  // Ejecutamos la consulta con executeQuery()
+
+        // Comprobamos si hay algún resultado
+        if (rs.next()) {
+            // Obtener los datos del ResultSet
+            datos[0] = rs.getString("nombre");
+            datos[1] = rs.getString("direccion");
+            datos[2] = rs.getString("correo");
+            datos[3] = rs.getString("telefono");
+            datos[4] = rs.getString("web");
+            datos[5] = String.valueOf(rs.getInt("idcompania"));
+
+            VistaAgencias va = new VistaAgencias();
+            
+            va.actualizar(datos[0], datos[1], datos[2], datos[3], datos[4], Integer.parseInt(datos[5]));
+            va.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            va.setVisible(true);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró la agencia con ID " + idagencia);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 }
+
+}
+
 
 
