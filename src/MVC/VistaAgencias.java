@@ -16,6 +16,8 @@ public class VistaAgencias extends javax.swing.JFrame {
      */
     public VistaAgencias() {
         initComponents();
+  btnactualizar.setVisible(false);
+
     }
 
     /**
@@ -42,7 +44,7 @@ public class VistaAgencias extends javax.swing.JFrame {
         btnEnviar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txfid = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,7 +105,7 @@ public class VistaAgencias extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Actualizar");
+        btnactualizar.setText("Actualizar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,7 +150,7 @@ public class VistaAgencias extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addComponent(btnEnviar)
                 .addGap(204, 204, 204)
-                .addComponent(jButton2)
+                .addComponent(btnactualizar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,7 +185,7 @@ public class VistaAgencias extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnviar)
-                    .addComponent(jButton2))
+                    .addComponent(btnactualizar))
                 .addGap(101, 101, 101))
         );
 
@@ -231,6 +233,7 @@ public class VistaAgencias extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
 
+
         
         try {
             String nombre = txfnombreAgencia.getText();
@@ -252,7 +255,9 @@ public class VistaAgencias extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     public void actualizar(String nombre, String direccion, String correo, String telefono, String web, int idcompania){
-    
+                btnactualizar.setVisible(true);
+                btnEnviar.setVisible(false);
+        
     txfnombreAgencia.setText(nombre);
     txfcorreo.setText(correo);
     txfdireccion.setText(direccion);
@@ -300,7 +305,7 @@ public class VistaAgencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnactualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
