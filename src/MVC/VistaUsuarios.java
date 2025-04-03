@@ -378,10 +378,10 @@ public class VistaUsuarios extends javax.swing.JFrame {
     
        
     private void btnquitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitarActionPerformed
-if(seleccion != 0){
+    if(seleccion != 0){
     String idBorrar = JOptionPane.showInputDialog("Escriba el ID a borrar");
         
-  if(idBorrar != null){      
+        if(idBorrar != null){      
         switch(seleccion){
     
         case 1 -> mensaje = "Desea borrar de la tabla clientes el ID: " + idBorrar;
@@ -405,7 +405,7 @@ if(seleccion != 0){
                 Conexiones conector = new Conexiones();
 
             
-            Connection dbConnection = null;
+        Connection dbConnection = null;
         PreparedStatement pst = null;
 
         String script = "DELETE FROM " + nombreTabla + " WHERE " + primaryKey + " = ?"; 
@@ -426,11 +426,10 @@ if(seleccion != 0){
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-            
-        }
+        }           
        }
-} 
+      }
+     } 
       switch (seleccion) {
     case 1 -> mostrarClientes("tblclientes");
     case 2 -> mostrarVehiculos("tblvehiculo");
