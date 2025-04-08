@@ -55,6 +55,7 @@ public class VistaPaquetes extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txfhoraventa = new javax.swing.JTextField();
+        btnactualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,6 +125,14 @@ public class VistaPaquetes extends javax.swing.JFrame {
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
         jPanel1.add(txfhoraventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 300, -1));
 
+        btnactualizar.setText("Actualizar");
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,6 +178,32 @@ cr.create(idDestino, idOrigen, fechaVenta, horaVenta, horaSalida, fechaEjecucion
 
     }//GEN-LAST:event_btnenviarActionPerformed
 
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnactualizarActionPerformed
+
+    public void setear(int codigo, int iddestino, int idorigen, String fechaventa, String horaventa, 
+                   String horasalida, String fechaejecucion, String observacion, int idcliente, 
+                   int idagencia, int idmedio, int idoperadores, String matricula, String precios) {
+    btnactualizar.setVisible(true);
+    btnenviar.setVisible(false);
+
+    txfdestino.setText(String.valueOf(iddestino)); 
+    txforigen.setText(String.valueOf(idorigen)); 
+    txffechaventa.setText(fechaventa); 
+    txfhoraventa.setText(horaventa); 
+    txfhorasalida.setText(horasalida); 
+    txffechaejecucion.setText(fechaejecucion); 
+    txfobservaciones.setText(observacion); 
+    txfidcliente.setText(String.valueOf(idcliente)); 
+    txfidagencia.setText(String.valueOf(idagencia)); 
+    txfidmedio.setText(String.valueOf(idmedio)); 
+    txfidoperador.setText(String.valueOf(idoperadores)); 
+    txfmatricula.setText(matricula); 
+    txfpreciopax.setText(precios); 
+}
+
+    
     /**
      * @param args the command line arguments
      */
@@ -206,6 +241,7 @@ cr.create(idDestino, idOrigen, fechaVenta, horaVenta, horaSalida, fechaEjecucion
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnenviar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

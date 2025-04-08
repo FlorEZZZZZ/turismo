@@ -24,6 +24,9 @@ import MVC.VistaTiposTransportes;
 import MVC.VistaUsuarios;
 import MVC.VistaVehiculo;
 import Modelo.Agencias;
+import Modelo.Clientes;
+import Modelo.Companias;
+import Modelo.Paquetes;
 import javax.swing.JFrame;
 /**
  *
@@ -330,7 +333,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btntipotransporteActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-       
+        
         VistaAgencias vistaAgencias = new VistaAgencias();
         VistaClientes vistaClientes = new VistaClientes();
         VistaCompanias vistaCompanias = new VistaCompanias();
@@ -347,7 +350,7 @@ public class VistaUsuarios extends javax.swing.JFrame {
         switch (seleccion) {
             case 1 -> {
                 vistaClientes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                vistaClientes.setVisible(true);
+                vistaClientes.setVisible(true);      
             }
             case 2 -> {
                 vistaVehiculo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -474,16 +477,27 @@ public class VistaUsuarios extends javax.swing.JFrame {
         if(seleccion != 0){
         switch (seleccion) {
             case 1 -> {
+            int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+
                 vistaClientes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                vistaClientes.setVisible(true);
+                
+                Clientes cl = new Clientes();
+                
+                cl.mostrarClienteActualizar(id);
             }
             case 2 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+
                 vistaVehiculo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vistaVehiculo.setVisible(true);
             }
             case 3 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaPaquetes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                vistaPaquetes.setVisible(true);
+                Paquetes pq = new Paquetes();
+                
+                pq.mostrarPaqueteActualizar(id);
             }
             case 4 -> {
                 int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
@@ -491,29 +505,44 @@ public class VistaUsuarios extends javax.swing.JFrame {
 
             Agencias ag = new Agencias();
         
-            ag.mostrar(id);
+            ag.mostrarAgenciaActualizar(id);
             }
             case 5 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaCompanias.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                vistaCompanias.setVisible(true);
+
+                Companias cp = new Companias();
+                cp.mostrarCompaniaActualizar(id);
+
             }
             case 6 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaMedios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vistaMedios.setVisible(true);
             }
             case 7 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaOperadores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vistaOperadores.setVisible(true);
             }
             case 8 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaPromotores.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vistaPromotores.setVisible(true);
             }
             case 9 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaTiposMedios.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vistaTiposMedios.setVisible(true);
             }
             case 10 -> {
+             int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el id de la agencia a editar"));
+                
                 vistaTiposTransportes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vistaTiposTransportes.setVisible(true);
             }

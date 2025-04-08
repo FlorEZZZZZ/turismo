@@ -112,8 +112,8 @@ public class Agencias {
         }
     }
      
-     public void mostrar(int idagencia){
-    String[] datos = new String[6];
+     public void mostrarAgenciaActualizar(int idagencia){
+    String[] datos = new String[7];
     String sql = "SELECT * FROM tblagencias WHERE idagencia = ?";
     Connection dbConnection = null;
     PreparedStatement pst = null;
@@ -128,16 +128,18 @@ public class Agencias {
         // Comprobamos si hay algún resultado
         if (rs.next()) {
             // Obtener los datos del ResultSet
-            datos[0] = rs.getString("nombre");
-            datos[1] = rs.getString("direccion");
-            datos[2] = rs.getString("correo");
-            datos[3] = rs.getString("telefono");
-            datos[4] = rs.getString("web");
-            datos[5] = String.valueOf(rs.getInt("idcompania"));
+            datos[0] = String.valueOf(rs.getInt("idagencia"));
+            datos[1] = rs.getString("nombre");
+            datos[2] = rs.getString("direccion");
+            datos[3] = rs.getString("correo");
+            datos[4] = rs.getString("telefono");
+            datos[5] = rs.getString("web");
+            datos[6] = String.valueOf(rs.getInt("idcompania"));
+            ;
 
             VistaAgencias va = new VistaAgencias();
             
-            va.actualizar(datos[0], datos[1], datos[2], datos[3], datos[4], Integer.parseInt(datos[5]));
+            va.actualizar(Integer.parseInt(datos[0]), datos[1], datos[2], datos[3], datos[4], datos[5], Integer.parseInt(datos[6]));
             va.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             va.setVisible(true);
             
@@ -149,6 +151,34 @@ public class Agencias {
         e.printStackTrace();
     }
 }
+     
+public void actualizar(String nombre, String direccion, String correo, String telefono, String web,int idcompania, int idagencia) {
+    Connection dbConnection = null;
+    PreparedStatement pst = null;
+
+    // Cambié la concatenación del idagencia en la consulta por un parámetro
+    String script = "UPDATE tblagencias SET nombre = ?, direccion = ?, correo = ?, telefono = ?, web = ?, idcompania = ? WHERE idagencia = " + idagencia;
+
+    try {
+        dbConnection = conector.conectarBD();
+        pst = dbConnection.prepareStatement(script);
+
+        // Establecer los valores de los parámetros
+        pst.setString(1, nombre);
+        pst.setString(2, direccion);
+        pst.setString(3, correo);
+        pst.setString(4, telefono);
+        pst.setString(5, web);
+        pst.setInt(6, idcompania);
+
+        // Ejecutar la actualización
+        pst.executeUpdate();
+
+        JOptionPane.showMessageDialog(null, "Registro actualizado con éxito.");
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error al actualizar el registro: " + e.getMessage());
+    }
+    }
 
 }
 
