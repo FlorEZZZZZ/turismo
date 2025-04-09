@@ -14,6 +14,7 @@ public class VistaPaquetes extends javax.swing.JFrame {
      */
     public VistaPaquetes() {
         initComponents();
+        txfcodigo.setVisible(false);
     }
 
     /**
@@ -56,6 +57,7 @@ public class VistaPaquetes extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txfhoraventa = new javax.swing.JTextField();
         btnactualizar = new javax.swing.JButton();
+        txfcodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +135,9 @@ public class VistaPaquetes extends javax.swing.JFrame {
         });
         jPanel1.add(btnactualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
 
+        txfcodigo.setFocusable(false);
+        jPanel1.add(txfcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 10, 80, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,12 +184,41 @@ cr.create(idDestino, idOrigen, fechaVenta, horaVenta, horaSalida, fechaEjecucion
     }//GEN-LAST:event_btnenviarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        // TODO add your handling code here:
+
+        try{
+    int codigo =     Integer.parseInt(txfcodigo.getText());
+    int idDestino = Integer.parseInt(txfdestino.getText());
+    int idOrigen = Integer.parseInt(txforigen.getText());
+    String fechaVenta = txffechaventa.getText();
+    String horaVenta = txfhoraventa.getText();
+    String horaSalida = txfhorasalida.getText();
+    String fechaEjecucion = txffechaejecucion.getText();
+    String observacion = txfobservaciones.getText();
+    int idCliente = Integer.parseInt(txfidcliente.getText());
+    int idAgencia = Integer.parseInt(txfidagencia.getText());
+    int idMedio = Integer.parseInt(txfidmedio.getText());
+    int idOperadores = Integer.parseInt(txfidoperador.getText());
+    String matricula = txfmatricula.getText();
+    String precios = txfpreciopax.getText();
+        
+    Paquetes cr = new Paquetes();
+
+            cr.actualizar(codigo, idDestino, idOrigen, fechaVenta, horaVenta,
+                    horaSalida, fechaEjecucion, observacion, idCliente,
+                    idAgencia, idMedio, idOperadores, matricula, precios);
+            setVisible(false);
+        }catch(NumberFormatException ex){
+        JOptionPane.showMessageDialog(this, "Error en los datos: Verifica los campos numéricos.", "Error", JOptionPane.ERROR_MESSAGE); 
+    }
+
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     public void setear(int codigo, int iddestino, int idorigen, String fechaventa, String horaventa, 
                    String horasalida, String fechaejecucion, String observacion, int idcliente, 
                    int idagencia, int idmedio, int idoperadores, String matricula, String precios) {
+
+    txfcodigo.setVisible(true);
+    txfcodigo.setText(String.valueOf(codigo));
     btnactualizar.setVisible(true);
     btnenviar.setVisible(false);
 
@@ -259,6 +293,7 @@ cr.create(idDestino, idOrigen, fechaVenta, horaVenta, horaSalida, fechaEjecucion
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txfcodigo;
     private javax.swing.JTextField txfdestino;
     private javax.swing.JTextField txffechaejecucion;
     private javax.swing.JTextField txffechaventa;

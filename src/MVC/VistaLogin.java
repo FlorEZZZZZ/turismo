@@ -79,7 +79,7 @@ public class VistaLogin extends javax.swing.JFrame {
 
         ControlAcceso ca = new ControlAcceso(Integer.parseInt(txfDocumento.getText()), txfContrasena.getText());
         ca.ingreso(Integer.parseInt(txfDocumento.getText()), txfContrasena.getText());
-        System.out.println("a");
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
